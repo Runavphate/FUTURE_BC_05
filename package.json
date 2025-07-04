@@ -1,0 +1,6 @@
+"homepage":
+"https://runavphate.github.io/FUTURE_BC_05/crypto-portfolio-tracker",
+"scripts":{
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build"
+}
