@@ -1,0 +1,52 @@
+.portfolio-table-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Inter', sans-serif;
+}
+
+.portfolio-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937;
+  text-align: center;
+}
+
+.portfolio-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.portfolio-table thead {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.portfolio-table th,
+.portfolio-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.portfolio-table tbody tr:hover {
+  background-color: #f3f4f6;
+  transition: background-color 0.2s ease;
+}
+
+.portfolio-table td {
+  color: #111827;
+}
+
+.empty-row {
+  text-align: center;
+  padding: 1rem;
+  color: #6b7280;
+}
