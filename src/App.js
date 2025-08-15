@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PortfolioTable from "./components/PortfolioTable";
 import { fetchPrices } from "./utils/fetchPrices";
-import "./App.js";
+import "./App.css";
 import "./PortfolioTable.css";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
 
   const ids = tokens.map((token) => token.id);
 
-useEffect(() => {
+  useEffect(() => {
     const savedMode = localStorage.getItem("darkMode");
     if (savedMode !== null) {
       setDarkMode(savedMode === "true");
@@ -34,22 +34,28 @@ useEffect(() => {
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-  const toggleMode = () => setDarkMode((prev) => !prev);
+  useEffect(() => {
+    const getPrices = async () => {
+      const fetched = await fetchPrices(ids);
+      setPrices(fetched);
+    };
 
     getPrices();
 
     const interval = setInterval(getPrices, 60000);
     return () => clearInterval(interval);
-  }, []);
+  }, [ids]);
 
-return (
+  const toggleMode = () => setDarkMode((prev) => !prev);
+
+  return (
     <div className={darkMode ? "dark-mode" : "light-mode"}>
       <button onClick={toggleMode} className="mode-toggle">
         {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
       </button>
       <div className="content">
         <h1>Welcome to My Portfolio</h1>
-        <p>This is a sample page with light/dark mode toggle.</p>
+        <PortfolioTable tokens={tokens} prices={prices} />
       </div>
     </div>
   );
