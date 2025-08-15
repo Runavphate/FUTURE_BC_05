@@ -34,7 +34,7 @@ function App() {
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-  useEffect(() => {
+ /* useEffect(() => {
   const getPrices = async () => {
     const fetched = await fetchPrices(ids);
     setPrices(fetched);
@@ -44,7 +44,7 @@ function App() {
 
   const interval = setInterval(getPrices, 60000);
   return () => clearInterval(interval);
-}, [ids]);
+}, [ids]);*/
 
   const toggleMode = () => setDarkMode((prev) => !prev);
 
