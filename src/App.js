@@ -34,7 +34,7 @@ function App() {
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-useEffect(() => {
+  useEffect(() => {
   const getPrices = async () => {
     const fetched = await fetchPrices(ids);
     setPrices(fetched);
