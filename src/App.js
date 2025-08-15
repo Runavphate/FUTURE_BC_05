@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
+    <div style={{ justify-content:center, padding: "20px", fontFamily: "Arial" }}>
       <h1>Crypto Portfolio Tracker</h1>
       <PortfolioTable tokens={tokens} prices={prices} />
     </div>
