@@ -34,17 +34,17 @@ function App() {
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
-  useEffect(() => {
-    const getPrices = async () => {
-      const fetched = await fetchPrices(ids);
-      setPrices(fetched);
-    };
+useEffect(() => {
+  const getPrices = async () => {
+    const fetched = await fetchPrices(ids);
+    setPrices(fetched);
+  };
 
-    getPrices();
+  getPrices();
 
-    const interval = setInterval(getPrices, 60000);
-    return () => clearInterval(interval);
-  }, [ids]);
+  const interval = setInterval(getPrices, 60000);
+  return () => clearInterval(interval);
+}, [ids]);
 
   const toggleMode = () => setDarkMode((prev) => !prev);
 
