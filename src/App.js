@@ -23,7 +23,7 @@ function App() {
 
   const ids = tokens.map((token) => token.id);
 
-  useEffect(() => {
+ /* useEffect(() => {
     const savedMode = localStorage.getItem("darkMode");
     if (savedMode !== null) {
       setDarkMode(savedMode === "true");
@@ -34,7 +34,7 @@ function App() {
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
- /* useEffect(() => {
+  useEffect(() => {
   const getPrices = async () => {
     const fetched = await fetchPrices(ids);
     setPrices(fetched);
