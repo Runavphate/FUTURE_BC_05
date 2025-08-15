@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import PortfolioTable from "./components/PortfolioTable";
 import { fetchPrices } from "./utils/fetchPrices";
+import "./App.js";
 import "./PortfolioTable.css";
 
 function App() {
   const [prices, setPrices] = useState({});
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const tokens = [
     { id: "bitcoin", name: "Bitcoin", amount: 0.5 },
@@ -22,11 +23,18 @@ function App() {
 
   const ids = tokens.map((token) => token.id);
 
-  useEffect(() => {
-    async function getPrices() {
-      const priceData = await fetchPrices(ids);
-      setPrices(priceData);
+useEffect(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode !== null) {
+      setDarkMode(savedMode === "true");
     }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+  }, [darkMode]);
+
+  const toggleMode = () => setDarkMode((prev) => !prev);
 
     getPrices();
 
@@ -34,14 +42,14 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div className={darkMode ? "dark-mode" : ""}>
-      <div className="app-wrapper">
-        <button onClick={() => setDarkMode(!darkMode)} className="toggle-button">
-          {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
-        </button>
-        <h1 className="app-title">Crypto Portfolio Tracker</h1>
-        <PortfolioTable tokens={tokens} prices={prices} />
+return (
+    <div className={darkMode ? "dark-mode" : "light-mode"}>
+      <button onClick={toggleMode} className="mode-toggle">
+        {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+      </button>
+      <div className="content">
+        <h1>Welcome to My Portfolio</h1>
+        <p>This is a sample page with light/dark mode toggle.</p>
       </div>
     </div>
   );
