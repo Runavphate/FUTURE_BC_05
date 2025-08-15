@@ -23,12 +23,12 @@ function App() {
 
   const ids = tokens.map((token) => token.id);
 
- /* useEffect(() => {
+  useEffect(() => {
     const savedMode = localStorage.getItem("darkMode");
     if (savedMode !== null) {
       setDarkMode(savedMode === "true");
     }
-  }, []);
+  },);
 
   useEffect(() => {
     localStorage.setItem("darkMode", darkMode);
@@ -44,7 +44,7 @@ function App() {
 
   const interval = setInterval(getPrices, 60000);
   return () => clearInterval(interval);
-}, [ids]);*/
+}, [ids]);
 
   const toggleMode = () => setDarkMode((prev) => !prev);
 
