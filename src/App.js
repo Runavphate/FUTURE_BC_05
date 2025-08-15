@@ -5,12 +5,18 @@ import { fetchPrices } from "./utils/fetchPrices";
 function App() {
   const [prices, setPrices] = useState({});
 
-  // Sample portfolio
-  const tokens = [
-    { id: "bitcoin", name: "Bitcoin", amount: 0.05 },
-    { id: "ethereum", name: "Ethereum", amount: 1.2 },
-    { id: "dogecoin", name: "Dogecoin", amount: 1000 },
-  ];
+const tokens = [
+  { id: "bitcoin", name: "Bitcoin", amount: 0.5 },
+  { id: "ethereum", name: "Ethereum", amount: 2 },
+  { id: "solana", name: "Solana", amount: 10 },
+  { id: "cardano", name: "Cardano", amount: 100 },
+  { id: "polkadot", name: "Polkadot", amount: 50 },
+  { id: "dogecoin", name: "Dogecoin", amount: 1000 },
+  { id: "avalanche-2", name: "Avalanche", amount: 20 },
+  { id: "chainlink", name: "Chainlink", amount: 30 },
+  { id: "uniswap", name: "Uniswap", amount: 25 },
+  { id: "litecoin", name: "Litecoin", amount: 5 },
+];
 
   const ids = tokens.map((token) => token.id);
 
